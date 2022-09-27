@@ -1,19 +1,29 @@
 {
-  "name": "mm-icons",
-  "version": "1.0.0",
-  "description": "mamamia icon library",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jamcgrath/mm-icons.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jamcgrath/mm-icons/issues"
-  },
-  "homepage": "https://github.com/jamcgrath/mm-icons#readme"
+	"name": "mm-icons",
+	"version": "1.0.0",
+	"description": "mamamia icon library",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"svgo": "svgo -f ./src -o ./iconz",
+		"webfont": "fantasticon ./icons -o ./dist",
+		"oslllo-svg-fixer": "node node_modules/oslllo-svg-fixer/src/cli.js",
+		"fixSVG": "npm run oslllo-svg-fixer -- --source ./iconz  --destination ./icons",
+		"build": "npm run svgo && npm run fixSVG && npm run webfont"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jamcgrath/mm-icons.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jamcgrath/mm-icons/issues"
+	},
+	"homepage": "https://github.com/jamcgrath/mm-icons#readme",
+	"dependencies": {
+		"fantasticon": "^1.2.3",
+		"oslllo-svg-fixer": "^2.1.2",
+		"svgo": "^2.8.0"
+	}
 }
