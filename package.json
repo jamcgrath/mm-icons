@@ -5,10 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"svgo": "svgo -f ./src -o ./iconz",
-		"webfont": "fantasticon ./icons -o ./dist",
+		"svgo": "svgo -f ./src -o ./tmp",
 		"oslllo-svg-fixer": "node node_modules/oslllo-svg-fixer/src/cli.js",
-		"fixSVG": "npm run oslllo-svg-fixer -- --source ./iconz  --destination ./icons",
+		"fixSVG": "npm run oslllo-svg-fixer -- --source ./tmp  --destination ./dist/icons && rm -rf ./tmp",
+		"webfont": "fantasticon ./dist/icons -o ./dist",
 		"build": "npm run svgo && npm run fixSVG && npm run webfont"
 	},
 	"repository": {
